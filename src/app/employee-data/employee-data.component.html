@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-sm">
+
+    <!-- Links -->
+    <ul  class="navbar-nav">
+        <li class="nav-item active">
+            <a [routerLink]="['/employeeData']" [routerLinkActive]="['active']" class="nav-link" href="#">Employee Data</a>
+        </li>
+        <li class="nav-item">
+            <a [routerLink]="['/payData']" class="nav-link" href="#">Pay Data</a>
+        </li>
+        <li class="nav-item">
+            <a [routerLink]="['/mappingData']" class="nav-link" href="#">Mapping</a>
+        </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li  class="nav-item">
+                <a class="nav-link" >
+                    <span class="glyphicon glyphicon-log-out"></span> Logout</a>
+            </li>
+    </ul>
+</nav>
+<div class="container">
+    <h2>Employee Data</h2><br>
+    <div class="panel-group" id="accordion">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title"> 
+            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse1" target="_self" >Legacy System</a>
+          </h4>
+        </div>
+        <div id="collapse1" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <p>Please upload Legacy System files</p>
+              <label class="btn btn-default">
+                  <input type="file" (change)="legacySelectFile($event)">
+                </label>
+                
+                <button class="btn btn-success" [disabled]="!legacySelectedFiles"
+                  (click)="legacyUpload()">Upload</button>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" data-target="#collapse2" target="_self" >New System</a>
+          </h4>
+        </div>
+        <div id="collapse2" class="panel-collapse collapse in">
+          <div class="panel-body">
+              <p>Please upload New System files</p>
+              <label class="btn btn-default">
+                  <input type="file" (change)="newSelectFile($event)">
+                </label>
+                
+                <button class="btn btn-success" [disabled]="!newSelectedFiles"
+                  (click)="newUpload()">Upload</button>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
