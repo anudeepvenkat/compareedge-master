@@ -410,6 +410,7 @@ export class MappingComponent implements OnInit {
       }
       console.log(tempArray);
       this.gridOptions.rowData = tempArray;
+	  this.uploadService.exportAsExcelFile(this.gridOptions.rowData, 'sample');
     });
   }
 }
